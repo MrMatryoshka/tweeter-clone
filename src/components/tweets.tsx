@@ -2,17 +2,18 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import {Typography} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import CommentIcon from "@material-ui/icons/CommentOutlined";
-import RepeatIcon from "@material-ui/icons/RepeatOutlined";
-import FavoriteIcon from "@material-ui/icons/FavoriteOutlined";
-import UndoIcon from "@material-ui/icons/Undo";
-import {useHomeStyle} from "../pages/Home/Home";
+import RepostIcon from '@material-ui/icons/RepeatOutlined';
+import LikeIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import ShareIcon from '@material-ui/icons/ReplyOutlined';
+import {useHomeStyles} from "../pages/Home/theme";
+import {Link} from 'react-router-dom';
 
 interface TweetProps {
+    id:string
     text : string;
-    classes : ReturnType<typeof useHomeStyle>;
+    classes : ReturnType<typeof useHomeStyles>;
     user:{
         fullname : string;
         username : string;
@@ -20,51 +21,52 @@ interface TweetProps {
     };
 }
 
-export const Tweet : React.FC<TweetProps> = ({text,classes,user}:TweetProps) : React.ReactElement => {
+export const Tweet : React.FC<TweetProps> = ({text,classes,user,id}:TweetProps) : React.ReactElement => {
+
     return (
-        <Paper  variant="outlined" className={classes.tweeterHeader}>
-                <Grid container spacing={3}>
-                    <Grid item xs={1}>
-                        <Avatar alt={`Аватар пользователя ${user.fullname} `} src={user.avatarUrl} className={classes.tweetAvatar} />
-                    </Grid>
-                    <Grid item xs={11}>
+            <Paper className={classes.tweetsHeader}>
+                <Link to={`/home/tweet/${id}`} className={classes.tweet}>
+                    <Avatar
+                        className={classes.tweetAvatar}
+                        alt={`Аватарка пользователя ${user.fullname}`}
+                        src={user.avatarUrl}
+                    />
+                    <div>
                         <Typography>
-                            <b> {user.fullname}</b>&nbsp;
-                            <span className={classes.idName}>{user.username}</span>&nbsp;
-                            <span  className={classes.idName}>~</span>&nbsp;
-                            <span className={classes.idName}>1ч</span>
+                            <b>{user.fullname}</b>&nbsp;
+                            <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
+                            <span className={classes.tweetUserName}>·</span>&nbsp;
+                            <span className={classes.tweetUserName}>1 ч</span>
                         </Typography>
-                        <Typography variant='body1' gutterBottom>
+                        <Typography variant="body1" gutterBottom>
                             {text}
                         </Typography>
-                        <div className={classes.tweeterFooter}>
+                        <div className={classes.tweetFooter}>
                             <div>
-                                <IconButton  color={'primary'}>
-                                    <CommentIcon />
+                                <IconButton>
+                                    <CommentIcon style={{ fontSize: 20 }} />
                                 </IconButton>
                                 <span>1</span>
                             </div>
-                            <div>
-                                <IconButton  color={'primary'}>
-                                    <RepeatIcon/>
-                                </IconButton>
 
+                            <div>
+                                <IconButton>
+                                    <RepostIcon style={{ fontSize: 20 }} />
+                                </IconButton>
                             </div>
                             <div>
-                                <IconButton  color={'primary'}>
-                                    <FavoriteIcon/>
+                                <IconButton>
+                                    <LikeIcon style={{ fontSize: 20 }} />
                                 </IconButton>
-
                             </div>
                             <div>
-                                <IconButton  color={'primary'}>
-                                    <UndoIcon />
+                                <IconButton>
+                                    <ShareIcon style={{ fontSize: 20 }} />
                                 </IconButton>
-
                             </div>
                         </div>
-                    </Grid>
-                </Grid>
+                    </div>
+                </Link>
             </Paper>
     )
 }

@@ -1,179 +1,163 @@
 import React from 'react';
-import {Theme, Typography} from '@material-ui/core';
+import  Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import IconButton from '@material-ui/core/IconButton';
-import {makeStyles} from "@material-ui/core/styles";
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-// import withStyles from "@material-ui/core/styles/withStyles";
-import {grey} from "@material-ui/core/colors";
-import {Tweet} from "../../components/tweets";
-import FlareOutlinedIcon from "@material-ui/icons/FlareOutlined";
-import {SideMenu} from "../../components/SideMenu";
+import  Typography from '@material-ui/core/Typography';
+
+import SearchIcon from '@material-ui/icons/SearchOutlined';
+import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import ListItem from '@material-ui/core/ListItem/ListItem';
+import Divider from '@material-ui/core/Divider/Divider';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar/Avatar';
+import ListItemText from '@material-ui/core/ListItemText/ListItemText';
+import List from '@material-ui/core/List/List';
+import Button from '@material-ui/core/Button/Button';
+import {InputAdornment} from '@material-ui/core';
+
+import { AddTweetForm } from '../../components/AddTweetForm';
+import { Tweet } from '../../components/tweets';
+import { SideMenu } from '../../components/SideMenu';
+import { useHomeStyles } from './theme';
+import { SearchTextField } from '../../components/SearchTextField';
+import {fetchTweets} from "../../components/store/ducks/tweets/actionCreater";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTweetsItems,selectIsTweetsLoading} from '../../components/store/ducks/tweets/selectors';
+import {Tags} from "../../components/Tag";
+import {selectIsTagsLoading, selectTagsItems} from "../../components/store/ducks/tags/selectors";
+import {fetchTags} from "../../components/store/ducks/tags/actionCreater";
+import {Route} from 'react-router-dom';
+import {BackButton} from '../../components/BackButton'
 
 
-export const useHomeStyle = makeStyles( (theme:Theme) => ({
-    wrapper:{
-      height: '100vh'
-    },
-    logoItem :{
-        margin: "15px 0",
-    },
-    logo:{
-        fontSize: 40,
-    },
-    sideMenuList : {
-        listStyle:'none',
-        margin: 0,
-        padding:0,
-        width:230
-    },
-    sideMenuListItem : {
-        "&:hover":{
-            "& div":{
-                backgroundColor: 'rgba(29,161,242, 0.1)',
-                color: "#00acee"
-            }
-        },
-      '& div' :{
-          display: 'inline-flex',
-          alignItems:'center',
-          padding: "0 25px 0 20px",
-          borderRadius:30,
-          cursor:'pointer',
-          height:58,
-          marginBottom: 10,
-          transition:'background-color 0,15s ease-in-out'
-      }
-    },
-    sideMenuListItemLabel : {
-        fontWeight: 700 ,
-        fontSize: 20,
-        marginLeft: 5,
-    },
-    sideMenuListItemLabelIcon:{
-        fontSize:25,
-        marginRight:10
-    },
-    sideMenuTweetButton:{
-        padding: theme.spacing(3),
-        marginTop: theme.spacing(3)
-    },
-    tweeterWrapper:{
-        borderRadius:0,
-        height: '100%',
-        borderTop: 0,
-        borderBottom:0
 
-    },
-    tweeterHeader :{
-        borderTop: 0,
-        borderLeft: 0,
-        borderRight: 0,
-        borderRadius:0,
-        padding: '10px',
-        cursor:'pointer',
-        '&:hover':{
-            backgroundColor:'rgb(245,248,250)',
-        }
-    },
-    tweetAvatar:{
-        width: theme.spacing(7),
-        height:theme.spacing(7)
-    },
-    typoH5 :{
-        fontWeight:800,
-    },
-    idName:{
-        color:grey[500]
-    },
-    tweeterFooter :{
-        display:'flex',
-        position:'relative',
-        left: -14,
-        justifyContent:'space-between',
-        width:450
-    }
+export const Home = (): React.ReactElement => {
+    const classes = useHomeStyles();
+    const dispatch = useDispatch();
 
-}));
+    const tweets = useSelector(selectTweetsItems);
+    const isLoadingTweet = useSelector(selectIsTweetsLoading);
 
-// const SearchTextField = withStyles(()=>
-//     createStyles({
-//     input:{
-//         borderRadius:30,
-//         backgroundColor:'#E6ECF0',
-//         height: 20,
-//     }
-//
-//     })
-// )(InputBase)
+    const tags = useSelector(selectTagsItems);
+    const isLoadingTag = useSelector(selectIsTagsLoading);
 
-
-export const Home = () => {
-    const classes =useHomeStyle()
+    React.useEffect(() => {
+        dispatch(fetchTweets())
+        dispatch(fetchTags());
+    }, [dispatch]);
 
     return (
         <Container className={classes.wrapper} maxWidth="lg">
-            <Grid container  spacing={3} >
-                <Grid item xs={3}>
-                   <SideMenu
-                       classes={classes}
-                   />
-                    </Grid>
-                <Grid item xs={6}>
-                  <Paper className={classes.tweeterWrapper} variant="outlined">
-                      <Paper  variant="outlined" className={classes.tweeterHeader}>
-                          <Typography variant="h5" className={classes.typoH5}>Главная
-                              <IconButton aria-label="star" color={"primary"} >
-                                  <FlareOutlinedIcon />
-                              </IconButton>
-                          </Typography>
-                      </Paper>
-                      <Tweet
-                          text={'Сенатор отметила, что у Трампа была возможность оспорить результаты выборов и суды до сих пор признавали его требования несостоятельными.\n' +
-                          'Она также назвала попытки оказывать давление на законодателей штатов ради изменения результатов голосования "беспрецедентными и противоречащими демократическому процессу".'}
-                          classes={classes}
-                          user={
-                              {
-                                  fullname: 'Kiril Ushakov',
-                                  username: "@kirilKO",
-                                  avatarUrl: "https://static.rfstat.com/renderforest/images/v2/logo-homepage/flat_3.png"
-                              }
-                          }
-                      />
-                      <Tweet
-                          text={'Сенатор отметила, что у Трампа была возможность оспорить результаты выборов и суды до сих пор признавали его требования несостоятельными.\n' +
-                          'Она также назвала попытки оказывать давление на законодателей штатов ради изменения результатов голосования "беспрецедентными и противоречащими демократическому процессу".'}
-                          classes={classes}
-                          user={
-                              {
-                                  fullname: 'Kiril Ushakov',
-                                  username: "@kirilKO",
-                                  avatarUrl: "https://static.rfstat.com/renderforest/images/v2/logo-homepage/flat_3.png"
-                              }
-                          }
-                      />
-                      <Tweet
-                          text={'Сенатор отметила, что у Трампа была возможность оспорить результаты выборов и суды до сих пор признавали его требования несостоятельными.\n' +
-                          'Она также назвала попытки оказывать давление на законодателей штатов ради изменения результатов голосования "беспрецедентными и противоречащими демократическому процессу".'}
-                          classes={classes}
-                          user={
-                              {
-                                  fullname: 'Kiril Ushakov',
-                                  username: "@kirilKO",
-                                  avatarUrl: "https://static.rfstat.com/renderforest/images/v2/logo-homepage/flat_3.png"
-                              }
-                          }
-                      />
-                  </Paper>
+            <Grid container spacing={3}>
+                <Grid sm={1} md={3} item>
+                    <SideMenu classes={classes} />
                 </Grid>
-                <Grid item xs={3}>
-                    <TextField  label="Поиск по Твиттеру" variant="outlined" />
+                <Grid sm={8} md={6} item>
+                    <Paper className={classes.tweetsWrapper} variant="outlined">
+                        <Paper className={classes.tweetsHeader} variant="outlined">
+                            <Route path="/home/:any">
+                                <BackButton classes={classes} />
+                            </Route>
+                            <Route path={['/home','/home/search']} exact>
+                                <Typography variant="h6">
+                                    Твитты
+                                </Typography>
+                            </Route>
+                            <Route path={'/home/tweet/:id'} >
+                                <Typography variant="h6">
+                                    Твитнуть
+                                </Typography>
+                            </Route>
+                        </Paper>
+                        <Route path={['/home','/home/search']} exact>
+                            <Paper>
+                                <div className={classes.addForm}>
+                                    <AddTweetForm classes={classes} />
+                                </div>
+                                <div className={classes.addFormBottomLine} />
+                            </Paper>
+                        </Route>
+                        <Route path={"/home"} exact >
+                            {isLoadingTweet ? (
+                                <div className={classes.tweetsCentred}>
+                                    <CircularProgress />
+                                </div>
+                            ) :(
 
+                                tweets.map((tweet) => (
+                                        <Tweet key={tweet._id} text={tweet.text} classes={classes} user={tweet.user} id={tweet._id} />
+                                    )
+                                )
+                            )
+                            }
+                        </Route>
+                    </Paper>
                 </Grid>
-                </Grid>
+                <Grid sm={3} md={3} item>
+                    <div className={classes.rightSide}>
+                        <SearchTextField
+                            variant="outlined"
+                            placeholder="Поиск по Твиттеру"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            fullWidth
+                        />
+                        <Paper className={classes.rightSideBlock}>
+                            <Paper className={classes.rightSideBlockHeader} variant="outlined">
+                                <b>Актуальные темы</b>
+                            </Paper>
+                            <List>
+                                {isLoadingTag ? (
+                                    <div className={classes.tweetsCentred}>
+                                        <CircularProgress />
+                                    </div>
+                                ) : (tags.map((tag) =>(
+                                    <Tags key={tag._id} classes={classes} name={tag.name}  count={tag.count}/>
+                                    )
+                                ))
 
+                                }
+
+                                <Divider component="li" />
+                            </List>
+                        </Paper>
+                        <Paper className={classes.rightSideBlock}>
+                            <Paper className={classes.rightSideBlockHeader} variant="outlined">
+                                <b>Кого читать</b>
+                            </Paper>
+                            <List>
+                                <ListItem className={classes.rightSideBlockItem}>
+                                    <ListItemAvatar>
+                                        <Avatar
+                                            alt="Remy Sharp"
+                                            src="https://pbs.twimg.com/profile_images/1267938486566428673/US6KRPbA_normal.jpg"
+                                        />
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                        primary="Dock Of Shame"
+                                        secondary={
+                                            <Typography component="span" variant="body2" color="textSecondary">
+                                                @FavDockOfShame
+                                            </Typography>
+                                        }
+                                    />
+                                    <Button color="primary">
+                                        <PersonAddIcon />
+                                    </Button>
+                                </ListItem>
+                                <Divider component="li" />
+                            </List>
+                        </Paper>
+                    </div>
+                </Grid>
+            </Grid>
         </Container>
-    )
-}
+    );
+};
