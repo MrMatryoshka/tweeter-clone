@@ -30,6 +30,8 @@ import {selectIsTagsLoading, selectTagsItems} from "../../components/store/ducks
 import {fetchTags} from "../../components/store/ducks/tags/actionCreater";
 import {Route} from 'react-router-dom';
 import {BackButton} from '../../components/BackButton'
+import {FullTweet} from "./component/FullTweet";
+// import {fetchTweetData} from "../../components/store/ducks/tweet/contracts/actionTypes";
 
 
 
@@ -46,6 +48,7 @@ export const Home = (): React.ReactElement => {
     React.useEffect(() => {
         dispatch(fetchTweets())
         dispatch(fetchTags());
+        // dispatch(fetchTweetData())
     }, [dispatch]);
 
     return (
@@ -93,6 +96,8 @@ export const Home = (): React.ReactElement => {
                             )
                             }
                         </Route>
+                        <Route path={"/home/tweet/:id"} component={FullTweet} exact />
+
                     </Paper>
                 </Grid>
                 <Grid sm={3} md={3} item>

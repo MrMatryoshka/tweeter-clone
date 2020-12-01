@@ -1,28 +1,27 @@
-import {
-    FetchTweetDataActionInterface,
-    SetTweetDataActionInterface,
-    SetTweetDataLoadingStateActionInterface,
-    TweetDataActionsType
-} from "../actionCreater";
-import {LoadingState} from "./state";
-import {Tweets} from "../../tweets/contracts/state";
+import {Action} from "redux";
+// import {Tweets} from "../../tweets/contracts/state";
+import {LoadingState, TweetDataState} from "./state";
 
-export const setTweetDataLoadingState = (payload: LoadingState) :  SetTweetDataLoadingStateActionInterface=> ({
-    type: TweetDataActionsType.SET_LOADING_STATE ,
-    payload,
-})
+export enum TweetDataActionsType {
+    SET_TWEET_DATA ='tweet/SET_TWEET_DATA',
+    FETCH_TWEET_DATA ='tweet/FETCH_TWEET_DATA',
+    SET_LOADING_STATE = 'tweet/SET_LOADING_STATE'
+}
 
+export  interface SetTweetDataActionInterface extends  Action<TweetDataActionsType> {
+    type: TweetDataActionsType.SET_TWEET_DATA;
+    payload: TweetDataState['data'];
+}
 
-export const setTweetData = (payload: Tweets) : SetTweetDataActionInterface => ({
-    type: TweetDataActionsType.SET_TWEET_DATA ,
-    payload,
-})
+export  interface FetchTweetDataActionInterface extends  Action<TweetDataActionsType> {
+    type: TweetDataActionsType.FETCH_TWEET_DATA ;
+    payload: string
 
-export const fetchTweetData = () : FetchTweetDataActionInterface => ({
-    type: TweetDataActionsType.FETCH_TWEET_DATA
-})
+}
 
-export type TweetDataAction =
-    SetTweetDataActionInterface |
-    FetchTweetDataActionInterface|
-    SetTweetDataLoadingStateActionInterface
+export  interface SetTweetDataLoadingStateActionInterface extends  Action<TweetDataActionsType> {
+    type: TweetDataActionsType.SET_LOADING_STATE ;
+    payload:LoadingState;
+
+}
+
