@@ -1,78 +1,7 @@
 {
   "tweets": [
     {
-      "_id": "5fc38910c6062c89a41e338e",
-      "text": "Et do veniam et eiusmod veniam dolor. Proident id irure sunt fugiat esse dolore eu tempor adipisicing. Cillum nostrud elit ex in adipisicing nisi sit dolore enim officia pariatur ex. Sunt enim enim sit nulla cupidatat occaecat nisi non laborum. Reprehenderit qui nostrud duis nisi pariatur labore veniam in adipisicing quis voluptate ex.",
-      "user": {
-        "fullname": "Strickland Beasley",
-        "username": "WILCOX",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
-      "_id": "5fc389108d58441fc920a0bf",
-      "text": "Eiusmod minim aute laborum excepteur. Aliqua dolore aliquip aliquip amet excepteur. Fugiat sunt consectetur ad ipsum anim ullamco nulla laboris enim duis. Velit consectetur est incididunt est proident aliqua sunt aliquip dolore veniam aliqua. Laboris pariatur anim officia amet.",
-      "user": {
-        "fullname": "Sophie Tate",
-        "username": "WOOD",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
-      "_id": "5fc38910929a1e02e3102e21",
-      "text": "Adipisicing duis voluptate eu tempor quis laboris labore consectetur. Pariatur nulla nostrud aute elit laboris nisi consectetur excepteur. Fugiat fugiat aliqua ex sint. Excepteur magna cupidatat do excepteur nostrud ipsum elit aliquip veniam Lorem tempor. Ipsum amet cillum ullamco excepteur culpa.",
-      "user": {
-        "fullname": "Lee Carroll",
-        "username": "CARPENTER",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
-      "_id": "5fc3891032a6969905e34b58",
-      "text": "Non et aliquip eu aliquip dolor. Esse aliqua amet Lorem magna officia cillum do voluptate reprehenderit qui in minim in. Esse minim incididunt officia deserunt. Officia tempor dolore eiusmod ex velit anim cupidatat. Nisi adipisicing laborum ex aliqua culpa excepteur deserunt veniam voluptate duis minim dolore eiusmod.",
-      "user": {
-        "fullname": "Stewart Burke",
-        "username": "FRAZIER",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
-      "_id": "5fc38910c2c0dfe27183c581",
-      "text": "Ut consequat aliquip est reprehenderit culpa occaecat elit qui qui qui. Pariatur reprehenderit nisi excepteur labore sint ut amet et Lorem consectetur. Exercitation aliqua officia minim aliqua dolor do ut aliqua. Esse veniam tempor deserunt ad ea fugiat. Ipsum reprehenderit sunt in reprehenderit aliqua aliqua nostrud Lorem ullamco velit laborum et Lorem.",
-      "user": {
-        "fullname": "Alisha Sullivan",
-        "username": "HANCOCK",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
-      "_id": "5fc3891083f51fbc5d8f014c",
-      "text": "Aliquip cillum est eiusmod magna ullamco sint. Ut quis enim id do laboris do elit minim. Amet quis qui culpa incididunt amet velit nisi pariatur excepteur dolor excepteur adipisicing enim. Deserunt consequat amet aliqua enim officia anim velit ea quis. Ad eu aute ullamco duis duis elit et.",
-      "user": {
-        "fullname": "Pope Espinoza",
-        "username": "MCCONNELL",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
-      "_id": "5fc38910e2e13cb4861cd272",
-      "text": "Reprehenderit ex sint adipisicing minim nostrud nisi commodo cupidatat sit occaecat. Laborum duis id mollit in ipsum eiusmod quis dolor elit. Pariatur ut commodo deserunt in nostrud pariatur cillum voluptate. Exercitation tempor esse ex aliqua nostrud consectetur dolor reprehenderit eiusmod et. Cillum enim aute consectetur proident aute laboris velit ullamco commodo aute ea nulla id commodo.",
-      "user": {
-        "fullname": "Irene Rojas",
-        "username": "CHARLES",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
-      "_id": "5fc38910fe365d23a9196d54",
-      "text": "Ullamco cupidatat minim sit labore est aute irure commodo consectetur laborum laborum nulla sint. Duis in ullamco id duis elit. Irure fugiat tempor velit in magna proident cupidatat. Commodo est do Lorem consequat non aliqua voluptate enim irure esse sint aliquip dolor ipsum. Labore occaecat consectetur eiusmod do qui reprehenderit adipisicing amet ad adipisicing irure ex incididunt.",
-      "user": {
-        "fullname": "Erickson Dunn",
-        "username": "CLEMONS",
-        "avatarUrl": "https://source.unsplash.com/random/100x100"
-      }
-    },
-    {
+      "id": 1,
       "_id": "5fc38910460c9bd17cd2f27a",
       "text": "Non dolore deserunt est anim. Non amet enim consectetur et nostrud esse nisi sit laboris id ad esse. Aliqua eiusmod incididunt aliqua excepteur duis irure qui enim. Magna voluptate ea consequat irure commodo nisi quis aliquip aliquip laborum aute sint. Ad enim nulla incididunt do eu proident pariatur incididunt ullamco sint eu proident.",
       "user": {
@@ -82,6 +11,7 @@
       }
     },
     {
+      "id": 2,
       "_id": "5fc3891062085a3ddef697ec",
       "text": "Anim amet proident laborum veniam enim tempor. Aute tempor cillum exercitation dolor. Dolore consequat est aute officia dolor enim laboris commodo eu veniam. Sunt ut magna exercitation et enim velit eiusmod consequat duis aute duis consequat pariatur. Exercitation est nostrud exercitation dolore.",
       "user": {
@@ -89,6 +19,66 @@
         "username": "COBB",
         "avatarUrl": "https://source.unsplash.com/random/100x100"
       }
+    },
+    {
+      "_id": "zdhskcs3xz",
+      "text": "test tweets",
+      "user": {
+        "fullname": "Nina4 Rich",
+        "username": "SALAZAR5",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 3
+    },
+    {
+      "_id": "i9x61pc3vo",
+      "text": "text test tweets",
+      "user": {
+        "fullname": "Nina4 Rich",
+        "username": "SALAZAR5",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 4
+    },
+    {
+      "_id": "yy5x5d9ahu",
+      "text": "Где моя тачка чувак?",
+      "user": {
+        "fullname": "Nina4 Rich",
+        "username": "SALAZAR5",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 5
+    },
+    {
+      "_id": "3dzdk4ar279",
+      "text": "как дела ?",
+      "user": {
+        "fullname": "Nina4 Rich",
+        "username": "SALAZAR5",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 6
+    },
+    {
+      "_id": "dbkf31a2k4n",
+      "text": "first tweet\n",
+      "user": {
+        "fullname": "Nina4 Rich",
+        "username": "SALAZAR5",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 7
+    },
+    {
+      "_id": "ebiqiibytf9",
+      "text": "two tweet",
+      "user": {
+        "fullname": "Nina4 Rich",
+        "username": "SALAZAR5",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      },
+      "id": 8
     }
   ],
   "tags": [
@@ -115,13 +105,13 @@
   ],
   "users": [
     {
-    "_id": "5fc38910e2e13cb4861cd272",
-    "user": {
-      "fullname": "Irene Rojas",
-      "username": "CHARLES",
-      "avatarUrl": "https://source.unsplash.com/random/100x100"
-    }
-  },
+      "_id": "5fc38910e2e13cb4861cd272",
+      "user": {
+        "fullname": "Irene Rojas",
+        "username": "CHARLES",
+        "avatarUrl": "https://source.unsplash.com/random/100x100"
+      }
+    },
     {
       "_id": "5fc38910fe365d23a9196d54",
       "user": {
@@ -145,12 +135,12 @@
         "username": "COBB",
         "avatarUrl": "https://source.unsplash.com/random/100x100"
       }
-    }],
-  "user" : {
+    }
+  ],
+  "user": {
     "_id": "5fc3891062085a3ddef697ec3",
     "fullname": "Kirill Ushakov",
     "username": "Kir17",
     "avatarUrl": "https://sun1-91.userapi.com/impf/c846420/v846420396/cf52f/Lpujy9m4l8A.jpg?size=200x0&quality=90&crop=120,0,720,720&sign=15f3964a2eec096bf393aa8d9cf90621&ava=1"
   }
-
 }

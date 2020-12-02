@@ -1,10 +1,9 @@
-import {LoadingState} from './contracts/state';
 import {call,takeEvery,put} from 'redux-saga/effects'
-import {setTweetsLoadingState} from "../tweets/actionCreater";
-import {TweetDataApi} from "../../../../services/api/twetAPI";
+import {TweetDataApi} from "../../../../services/api/tweetDataAPI";
 import {Tweets} from "../tweets/contracts/state";
 import {FetchTweetDataActionInterface, TweetDataActionsType} from "./contracts/actionTypes";
-import {setTweetData} from "./actionCreater";
+import {setTweetData, setTweetDataLoadingState} from "./actionCreater";
+import {TweetDataLoadingState} from "./contracts/state";
 
 export function* fetchTweetDataRequest({payload:tweetId}: FetchTweetDataActionInterface){
 
@@ -12,7 +11,7 @@ export function* fetchTweetDataRequest({payload:tweetId}: FetchTweetDataActionIn
     const data : Tweets[] = yield  call(TweetDataApi.fetchTweetData, tweetId)
         yield put(setTweetData(data[0]))
     }catch (error){
-        yield put(setTweetsLoadingState(LoadingState.ERROR))
+        yield put(setTweetDataLoadingState(TweetDataLoadingState.ERROR))
     }
 }
 

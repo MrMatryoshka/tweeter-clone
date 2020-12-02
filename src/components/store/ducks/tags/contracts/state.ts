@@ -1,4 +1,4 @@
-export enum LoadingState {
+export enum TagLoadingState {
     LOADED = 'LOADED',
     LOADING = 'LOADING',
     ERROR = 'ERROR',
@@ -14,5 +14,5 @@ export  interface Tag {
 
 export interface TagsState {
     items:Tag[],
-    loadingState: LoadingState
+    loadingState: TagLoadingState
 }

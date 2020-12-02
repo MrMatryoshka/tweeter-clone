@@ -18,7 +18,7 @@ import Button from '@material-ui/core/Button/Button';
 import {InputAdornment} from '@material-ui/core';
 
 import { AddTweetForm } from '../../components/AddTweetForm';
-import { Tweet } from '../../components/tweets';
+
 import { SideMenu } from '../../components/SideMenu';
 import { useHomeStyles } from './theme';
 import { SearchTextField } from '../../components/SearchTextField';
@@ -31,7 +31,7 @@ import {fetchTags} from "../../components/store/ducks/tags/actionCreater";
 import {Route} from 'react-router-dom';
 import {BackButton} from '../../components/BackButton'
 import {FullTweet} from "./component/FullTweet";
-// import {fetchTweetData} from "../../components/store/ducks/tweet/contracts/actionTypes";
+import {Tweet} from "../../components/Tweets";
 
 
 
@@ -48,7 +48,7 @@ export const Home = (): React.ReactElement => {
     React.useEffect(() => {
         dispatch(fetchTweets())
         dispatch(fetchTags());
-        // dispatch(fetchTweetData())
+
     }, [dispatch]);
 
     return (

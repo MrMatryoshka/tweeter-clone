@@ -5,6 +5,13 @@ export enum LoadingState {
     NEVER = 'NEVER'
 }
 
+export enum AddFormState {
+    LOADING = 'LOADING',
+    ERROR = 'ERROR',
+    NEVER = 'NEVER',
+    ADD_FORM_TWEETS ='ADD_FORM_TWEETS'
+}
+
 
 export  interface Tweets {
     _id : string
@@ -18,5 +25,6 @@ export  interface Tweets {
 
 export interface TweetsState {
     items:Tweets[],
-    loadingState: LoadingState
+    loadingState: LoadingState,
+    addFormState:AddFormState
 }
