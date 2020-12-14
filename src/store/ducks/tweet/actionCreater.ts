@@ -6,13 +6,13 @@ import {
 } from "./contracts/actionTypes";
 import {TweetDataLoadingState, TweetDataState} from "./contracts/state";
 
-export const setTweetDataLoadingState = (payload: TweetDataLoadingState) :  SetTweetDataLoadingStateActionInterface=> ({
+export const setTweetDataLoadingState = (payload: TweetDataLoadingState) :  SetTweetDataLoadingStateActionInterface => ({
     type: TweetDataActionsType.SET_LOADING_STATE ,
     payload
 })
 
 
-export const setTweetData = (payload: TweetDataState['data']) : SetTweetDataActionInterface => <SetTweetDataActionInterface>({
+export const setTweetData = (payload: TweetDataState['data']) : SetTweetDataActionInterface => ({
     type: TweetDataActionsType.SET_TWEET_DATA,
     payload,
 })

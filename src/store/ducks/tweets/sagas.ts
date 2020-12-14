@@ -1,9 +1,9 @@
 import {addTweets, setAddFormTweetsStateLoadingState, setTweets, setTweetsLoadingState} from "./actionCreater";
 import {AddFormState, LoadingState} from './contracts/state'
 import {call, put, takeEvery} from 'redux-saga/effects'
-import {TweetsApi} from "../../../../services/api/twetsAPI";
+import {TweetsApi} from "../../../services/api/twetsAPI";
 import {FetchAddTweetsActionInterface, TweetsActionsType} from "./contracts/actionTypes";
-import {AddTweetDataApi} from "../../../../services/api/addtweetAPI";
+import {AddTweetDataApi} from "../../../services/api/addtweetAPI";
 
 export function* fetchTweetsRequest(){
     try {
@@ -14,19 +14,9 @@ export function* fetchTweetsRequest(){
     }
 }
 
-export function* fetchAddTweetsRequest({payload} : FetchAddTweetsActionInterface){
+export function* fetchAddTweetsRequest({payload:text} : FetchAddTweetsActionInterface){
     try {
-        const data = {
-            _id: Math.random().toString(36).substr(2),
-            text: payload,
-            user: {
-                fullname: "Nina4 Rich",
-                username: "SALAZAR5",
-                avatarUrl: "https://source.unsplash.com/random/100x100?5"
-            }
-        }
-
-        const item = yield  call(AddTweetDataApi.addTweets,data)
+        const item = yield call(AddTweetDataApi.addTweet, text);
         yield put(addTweets(item))
     }catch (error){
         yield put(setAddFormTweetsStateLoadingState(AddFormState.ERROR))

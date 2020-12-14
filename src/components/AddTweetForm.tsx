@@ -11,9 +11,9 @@ import Snackbar from "@material-ui/core/Snackbar";
 
 import {useHomeStyles} from "../pages/Home/theme";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAddTweets} from "./store/ducks/tweets/actionCreater";
-import {selectAddFormLoadingState} from "./store/ducks/tweets/selectors";
-import {AddFormState} from "./store/ducks/tweets/contracts/state";
+import {fetchAddTweets} from "../store/ducks/tweets/actionCreater";
+import {selectAddFormLoadingState} from "../store/ducks/tweets/selectors";
+import {AddFormState} from "../store/ducks/tweets/contracts/state";
 
 interface AddTweetFormProps{
     classes : ReturnType<typeof useHomeStyles>;

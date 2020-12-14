@@ -1,4 +1,4 @@
-import {Tweets} from "../../tweets/contracts/state";
+import {Tweet} from "../../tweets/contracts/state";
 
 export enum TweetDataLoadingState {
     LOADED = 'LOADED',
@@ -8,6 +8,6 @@ export enum TweetDataLoadingState {
 }
 
 export interface TweetDataState {
-    data? :Tweets,
+    data? :Tweet,
     loadingState: TweetDataLoadingState
 }

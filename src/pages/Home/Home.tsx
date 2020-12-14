@@ -22,12 +22,12 @@ import { AddTweetForm } from '../../components/AddTweetForm';
 import { SideMenu } from '../../components/SideMenu';
 import { useHomeStyles } from './theme';
 import { SearchTextField } from '../../components/SearchTextField';
-import {fetchTweets} from "../../components/store/ducks/tweets/actionCreater";
+import {fetchTweets} from "../../store/ducks/tweets/actionCreater";
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTweetsItems,selectIsTweetsLoading} from '../../components/store/ducks/tweets/selectors';
+import { selectTweetsItems,selectIsTweetsLoading} from '../../store/ducks/tweets/selectors';
 import {Tags} from "../../components/Tag";
-import {selectIsTagsLoading, selectTagsItems} from "../../components/store/ducks/tags/selectors";
-import {fetchTags} from "../../components/store/ducks/tags/actionCreater";
+import {selectIsTagsLoading, selectTagsItems} from "../../store/ducks/tags/selectors";
+import {fetchTags} from "../../store/ducks/tags/actionCreater";
 import {Route} from 'react-router-dom';
 import {BackButton} from '../../components/BackButton'
 import {FullTweet} from "./component/FullTweet";
@@ -61,7 +61,7 @@ export const Home = (): React.ReactElement => {
                     <Paper className={classes.tweetsWrapper} variant="outlined">
                         <Paper className={classes.tweetsHeader} variant="outlined">
                             <Route path="/home/:any">
-                                <BackButton classes={classes} />
+                                <BackButton />
                             </Route>
                             <Route path={['/home','/home/search']} exact>
                                 <Typography variant="h6">
@@ -90,11 +90,20 @@ export const Home = (): React.ReactElement => {
                             ) :(
 
                                 tweets.map((tweet) => (
-                                        <Tweet key={tweet._id} text={tweet.text} classes={classes} user={tweet.user} id={tweet._id} />
+                                        <Tweet
+                                            key={tweet._id}
+                                            text={tweet.text}
+                                            classes={classes}
+                                            user={tweet.user}
+                                            _id={tweet._id}
+                                            createdAt={tweet.createdAt}
+                                            />
                                     )
                                 )
+
                             )
                             }
+
                         </Route>
                         <Route path={"/home/tweet/:id"} component={FullTweet} exact />
 

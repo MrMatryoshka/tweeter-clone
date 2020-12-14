@@ -13,9 +13,10 @@ export enum AddFormState {
 }
 
 
-export  interface Tweets {
+export  interface Tweet {
     _id : string
     text:string
+    createdAt: string
     user :{
         "fullname": string,
         "username": string,
@@ -24,7 +25,7 @@ export  interface Tweets {
 }
 
 export interface TweetsState {
-    items:Tweets[],
+    items:Tweet[],
     loadingState: LoadingState,
     addFormState:AddFormState
 }

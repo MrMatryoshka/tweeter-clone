@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import them from "./theme";
-import {store} from "./components/store/store";
+import {store} from "./store/store";
 
 ReactDOM.render(
   <React.StrictMode>
