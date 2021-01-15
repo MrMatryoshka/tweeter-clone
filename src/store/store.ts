@@ -5,6 +5,7 @@ import rootSaga from "./saga";
 import {TweetsState} from "./ducks/tweets/contracts/state";
 import {TagsState} from "./ducks/tags/contracts/state";
 import {TweetDataState} from "./ducks/tweet/contracts/state";
+import {UserState} from "./ducks/user/contracts/state";
 
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -12,9 +13,10 @@ const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOO
 const sagaMiddleware =createSagaMiddleware()
 
 export interface RootState {
-    tweets:TweetsState;
-    tags:TagsState;
-    tweet:TweetDataState
+    tweets: TweetsState;
+    tags: TagsState;
+    tweet: TweetDataState;
+    user: UserState;
 
 }
 

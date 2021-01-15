@@ -1,5 +1,6 @@
-import {AddFormState, LoadingState, Tweet, TweetsState} from "./state";
+import {AddFormState, Tweet, TweetsState} from "./state";
 import {Action} from "redux";
+import {LoadingStatus} from "../../../types";
 
 export enum TweetsActionsType {
     SET_TWEETS ='tweets/SET_TWEETS',
@@ -23,7 +24,7 @@ export  interface FetchTweetsActionInterface extends  Action<TweetsActionsType> 
 
 export  interface SetTweetsLoadingStateActionInterface extends  Action<TweetsActionsType> {
     type: TweetsActionsType.SET_LOADING_STATE ;
-    payload:LoadingState;
+    payload:LoadingStatus;
 
 }
 
