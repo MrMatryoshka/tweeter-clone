@@ -61,6 +61,7 @@ export const Home = (): React.ReactElement => {
                     </div>
                 ) : (
                     tweets.map((tweet) => <Tweet
+                        key={tweet._id}
                         _id={tweet._id}
                         text={tweet.text}
                         classes={classes}

@@ -1,33 +1,38 @@
-import {UserState} from "./contracts/state";
 import {
     FetchSignInActionInterface,
+    FetchSignUpActionInterface,
     SetUserDataActionInterface,
-    SetUserDataLoadingStatusActionInterface,
-    UserActionType
+    SetUserLoadingStatusActionInterface,
+    UserActionsType
 } from "./contracts/actionTypes";
-import {LoginModalProps} from "../../../pages/Signin/components/LoginModal";
-
-export const setUserData = ( payload : UserState['data'] ) :SetUserDataActionInterface => ( {
-        type:UserActionType.SET_USER_DATA,
-        payload
-    }
-)
+import { UserState } from "./contracts/state";
+import {LoginFormProps} from "../../../pages/Signin/components/LoginModal";
+import {RegisterFormProps} from "../../../pages/Signin/components/RegisterModel";
 
 
-export const fetchSignIn = ( payload : LoginModalProps ) :FetchSignInActionInterface => ( {
-        type:UserActionType.FETCH_SIGN_IN,
-        payload
-    }
-)
+export const setUserData = (payload: UserState['data']): SetUserDataActionInterface => ({
+    type: UserActionsType.SET_USER_DATA,
+    payload,
+});
+
+export const fetchSignIn = (payload: LoginFormProps): FetchSignInActionInterface => ({
+    type: UserActionsType.FETCH_SIGN_IN,
+    payload,
+});
+
+export const fetchSignUp = (payload: RegisterFormProps): FetchSignUpActionInterface => ({
+    type: UserActionsType.FETCH_SIGN_UP,
+    payload,
+});
 
 
-export const setUserDataLoadingStatus = ( payload :UserState['status']) :SetUserDataLoadingStatusActionInterface => ( {
-        type:UserActionType.SET_LOADING_STATE,
-        payload
-    }
-)
+
+export const setUserLoadingStatus = (payload: UserState['status']): SetUserLoadingStatusActionInterface => ({
+    type: UserActionsType.SET_LOADING_STATE,
+    payload,
+});
 
 
-export type UserAction =
-    |SetUserDataActionInterface
-    |SetUserDataLoadingStatusActionInterface
+export type UserActions =
+    | SetUserDataActionInterface
+    | SetUserLoadingStatusActionInterface;

@@ -1,27 +1,28 @@
-import {axios} from '../../core/axios';
-import {LoginModalProps} from "../../pages/Signin/components/LoginModal";
+import { axios } from '../../core/axios';
+import {LoginFormProps} from "../../pages/Signin/components/LoginModal";
+import {RegisterFormProps} from "../../pages/Signin/components/RegisterModel";
+
 
 interface ResponseApi {
-    status:string
-    data: any
+    status: string;
+    data: any;
 }
-
 
 export const AuthApi = {
-   async  signIn(postData: LoginModalProps) : Promise<ResponseApi>{
-        const {data} = await axios.post<ResponseApi>('auth/login' ,{userName : postData.email , password : postData.password});
-        console.log("LoginAPI",postData)
-        return data
+    async signIn(postData: LoginFormProps): Promise<ResponseApi> {
+        const { data } = await axios.post<ResponseApi>('/auth/login', { username: postData.email, password: postData.password });
+        return data;
     },
-    async getMe() : Promise<ResponseApi>{
-        const {data} = await axios.post<ResponseApi>('/users/me' );
-        return data
-    }
-    // async  register() : Promise<string>{
-    //     const {data} = await axios.get<ResponseApi>('/auth/register');
-    //     return data.data
-    // }
-}
+    async signUp(postData: RegisterFormProps): Promise<ResponseApi> {
+        const { data } = await axios.post<ResponseApi>('/auth/register', { email: postData.email, username: postData.username, fullname: postData.fullname, password: postData.password, password2: postData.password2 });
+        return data;
+    },
+    async getMe(): Promise<ResponseApi> {
+        const { data } = await axios.get<ResponseApi>('/users/me');
+        return data;
+    },
+};
 
 // @ts-ignore
 window.AuthApi = AuthApi;
+

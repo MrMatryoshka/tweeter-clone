@@ -1,4 +1,4 @@
-import {LoadingStatus} from "../../../types";
+import { LoadingStatus } from "../../../types";
 
 export interface User {
     _id?: string;
@@ -17,4 +17,3 @@ export interface UserState {
     data: User | undefined;
     status: LoadingStatus;
 }
-

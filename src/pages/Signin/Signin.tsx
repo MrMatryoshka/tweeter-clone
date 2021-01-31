@@ -1,13 +1,13 @@
 import React from 'react';
-import {  Typography, Button } from '@material-ui/core';
+import {Typography, Button } from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/PeopleOutline';
 import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
-import {LoginModal} from "./components/LoginModal";
-import {RegisterModal} from "./components/RegisterModel";
+import { LoginModal } from './components/LoginModal';
 import {useStylesSignIn} from "./theme";
-
+import {RegisterModal} from "./components/RegisterModel";
+// import { RegisterModal } from './components/RegisterModal';
 
 export const SignIn: React.FC = (): React.ReactElement => {
     const classes = useStylesSignIn();
@@ -21,10 +21,10 @@ export const SignIn: React.FC = (): React.ReactElement => {
         setVisibleModal('signUp');
     };
 
-
     const handleCloseModal = (): void => {
         setVisibleModal(undefined);
     };
+
     return (
         <div className={classes.wrapper}>
             <section className={classes.blueSide}>
@@ -71,8 +71,8 @@ export const SignIn: React.FC = (): React.ReactElement => {
                     <Button onClick={handleClickOpenSignIn} variant="outlined" color="primary" fullWidth>
                         Войти
                     </Button>
-                   <LoginModal open={visibleModal ==='signIn'} onClose={handleCloseModal} classes={classes} />
-                    <RegisterModal open={visibleModal ==='signUp'}  onClose={handleCloseModal} classes={classes}/>
+                    <LoginModal open={visibleModal === 'signIn'} onClose={handleCloseModal} />
+                    <RegisterModal open={visibleModal === 'signUp'} onClose={handleCloseModal} />
                 </div>
             </section>
         </div>

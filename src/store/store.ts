@@ -6,6 +6,7 @@ import {TweetsState} from "./ducks/tweets/contracts/state";
 import {TagsState} from "./ducks/tags/contracts/state";
 import {TweetDataState} from "./ducks/tweet/contracts/state";
 import {UserState} from "./ducks/user/contracts/state";
+import {UsersState} from "./ducks/users/contracts/state";
 
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -17,6 +18,7 @@ export interface RootState {
     tags: TagsState;
     tweet: TweetDataState;
     user: UserState;
+    users:UsersState
 
 }
 
